@@ -45,6 +45,9 @@ class Runner
     Rotator.new(@offset_true)
   end
 
+  def hash_pairs()
+  end
+
 end
 
 k = Runner.new

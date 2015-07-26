@@ -21,7 +21,7 @@ class Rotator
   end
 
   def characters
-    characters = (' '..'z').to_a
+    characters = ('a'..'z').to_a + ("0".."9").to_a + (" ,.").split
   end
 
   def rotated_a
