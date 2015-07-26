@@ -1,8 +1,8 @@
-require 'pry'  # => true
+require 'pry'
 
 class Key
 
-  attr_accessor :key  # => nil
+  attr_accessor :key
 
   def intialize
     @key = key

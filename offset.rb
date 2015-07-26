@@ -43,9 +43,3 @@ class Offset
   end
 
 end
-
-# k = Offset.new
-# k2 = Key.new
-# k2.generator
-# k.a_offset + k2.upper_a
-# # p k.b_offset + k2.upper_b
