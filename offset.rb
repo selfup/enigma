@@ -25,9 +25,6 @@ class Offset
   def a_offset
     k = Offset.new
     a_offset = k.date_gen[0].to_i
-    # k2 = Key.new
-    # k2.generator
-    # offset_a = a_offset + k2.upper_a
   end
 
   def b_offset

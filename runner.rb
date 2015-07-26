@@ -1,5 +1,6 @@
 require "./key.rb"
 require "./offset.rb"
+require "./rotator.rb"
 
 class Runner
 
@@ -41,11 +42,11 @@ class Runner
   end
 
   def rotator
-    k = Rotator.new
-    k.last_method
+    Rotator.new(@offset_true)
   end
 
 end
 
 k = Runner.new
 p k.true_offset
+p k.rotator

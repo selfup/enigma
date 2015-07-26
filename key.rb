@@ -9,37 +9,23 @@ class Key
   end
 
   def generator
-    @key = 5.times.map { rand (0..9) }.join  # => "77376"
+    @key = 5.times.map { rand (0..9) }.join
   end
 
   def upper_a
-    @key[0..1].to_i  # => 77
+    @key[0..1].to_i
   end
 
   def upper_b
-    @key[1..2].to_i  # => 73
+    @key[1..2].to_i
   end
 
   def upper_c
-    @key[2..3].to_i  # => 37
+    @key[2..3].to_i
   end
 
   def upper_d
-    @key[3..4].to_i  # => 76
+    @key[3..4].to_i
   end
 
 end
-
-# k = Key.new    # => #<Key:0x007fa143047c20>
-# p k.generator  # => "77376"
-# p k.upper_a    # => 77
-# p k.upper_b    # => 73
-# p k.upper_c    # => 37
-# p k.upper_d    # => 76
-
-
-# >> "77376"
-# >> 77
-# >> 73
-# >> 37
-# >> 76
