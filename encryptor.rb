@@ -54,7 +54,7 @@ class Encryptor
 
   def encrypt(message)
     result = []
-    updated = message.chars.each_slice(4).to_a
+    updated = message.downcase.chars.each_slice(4).to_a
 
     updated.each_with_index do |letter, index|
       if letter[0]

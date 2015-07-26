@@ -29,4 +29,4 @@ end
 
 k = Runner.new
 p k.true_offset
-p k.rotator("hello")
+p k.rotator("hello JAJAJA")
