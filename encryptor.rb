@@ -21,7 +21,7 @@ class Rotator
   end
 
   def characters
-    characters = ('a'..'z').to_a + ("0".."9").to_a + (" .,").split("")
+    characters = ('a'..'z').to_a + ("0".."9").to_a + (" ,.").split
   end
 
   def rotated_a(letter)
@@ -52,32 +52,9 @@ class Rotator
     cipher[letter]
   end
 
-  def test_this(message)
-    # message = "Hello this is a hopeful test h"
-    result = []
-
-    updated = message.chars.each_slice(4).to_a
-
-    updated.each_with_index do |letter, index|
-      if letter[0]
-        result << rotated_a(letter[0])
-      end
-      if letter[1]
-        result << rotated_b(letter[1])
-      end
-      if letter[2]
-        result << rotated_c(letter[2])
-      end
-      if letter[3]
-        result << rotated_d(letter[3])
-      end
-    end
-    p result.join
-  end
-
 end
 
-k = Rotator.new([1, 1, 1, 1])
+k = Rotator.new([42, 24, 49, 92])
 # p k.rotator_a
 # p k.rotator_b
 # p k.rotator_c
@@ -85,5 +62,4 @@ k = Rotator.new([1, 1, 1, 1])
 # p k.rotated_a
 # p k.rotated_b
 # p k.rotated_c
-# p k.rotated_d
-k.test_this("abcd e")
+p k.rotated_d('e')
