@@ -1,4 +1,4 @@
-class Rotator
+class Encryptor
 
   def initialize(offset)
     @offset = offset
@@ -53,9 +53,7 @@ class Rotator
   end
 
   def test_this(message)
-    # message = "Hello this is a hopeful test h"
     result = []
-
     updated = message.chars.each_slice(4).to_a
 
     updated.each_with_index do |letter, index|
@@ -72,18 +70,7 @@ class Rotator
         result << rotated_d(letter[3])
       end
     end
-    p result.join
+    result.join
   end
 
 end
-
-k = Rotator.new([1, 1, 1, 1])
-# p k.rotator_a
-# p k.rotator_b
-# p k.rotator_c
-# p k.rotator_d
-# p k.rotated_a
-# p k.rotated_b
-# p k.rotated_c
-# p k.rotated_d
-k.test_this("abcd e")

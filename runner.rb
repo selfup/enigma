@@ -41,8 +41,8 @@ class Runner
     @offset_true = offset
   end
 
-  def rotator
-    Rotator.new(@offset_true)
+  def rotator(argument)
+    Encryptor.new(@offset_true).test_this(argument)
   end
 
   def hash_pairs()
@@ -52,4 +52,4 @@ end
 
 k = Runner.new
 p k.true_offset
-p k.rotator
+p k.rotator("hello")
