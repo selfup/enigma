@@ -1,5 +1,5 @@
-# require "simplecov"
-# SimpleCov.start
+require "simplecov"
+SimpleCov.start
 
 require "minitest/autorun"
 require "minitest/pride"
@@ -35,10 +35,11 @@ class RunnerTest < Minitest::Test
   end
 
   def test_runner_method_does_the_same_job_as_key_class_for_generate_method
+    skip
     sample = Runner.new
-    key_test = sample.generate_key
-    key_test2 = sample.generate_key
-    key_test3 = sample.generate_key
+    key_test = sample.generator
+    key_test2 = sample.generator
+    key_test3 = sample.generator
     refute_equal key_test2, key_test, key_test3
   end
 

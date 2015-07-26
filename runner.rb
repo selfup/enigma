@@ -3,10 +3,10 @@ require "./offset.rb"
 
 class Runner
 
-  attr_reader :offset
+  attr_reader :offset_true
 
   def intialize
-    @offset = offset
+    @offset_true = offset_true
   end
 
   def a_offset
@@ -37,10 +37,10 @@ class Runner
     offset << b_offset + k2.upper_b
     offset << c_offset + k2.upper_c
     offset << d_offset + k2.upper_d
-    @offset = offset
+    @offset_true = offset
   end
 
-  def rotator(@offset)
+  def rotator
     k = Rotator.new
     k.last_method
   end
