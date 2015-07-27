@@ -10,6 +10,12 @@ class Offset
 
   def date_gen
     date = Time.now.strftime('%m%e%y')
+    # date = offset_the_date(date)
+    # last_four(date)
+  end
+
+  def date_masher
+    date = date_gen
     date = offset_the_date(date)
     last_four(date)
   end
@@ -24,22 +30,22 @@ class Offset
 
   def a_offset
     k = Offset.new
-    a_offset = k.date_gen[0].to_i
+    a_offset = k.date_masher[0].to_i
   end
 
   def b_offset
     k = Offset.new
-    b_offset = k.date_gen[1].to_i
+    b_offset = k.date_masher[1].to_i
   end
 
   def c_offset
     k = Offset.new
-    a_offset = k.date_gen[2].to_i
+    a_offset = k.date_masher[2].to_i
   end
 
   def d_offset
     k = Offset.new
-    a_offset = k.date_gen[3].to_i
+    a_offset = k.date_masher[3].to_i
   end
 
 end
