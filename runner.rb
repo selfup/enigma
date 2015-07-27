@@ -34,7 +34,7 @@ class Runner
   end
 
   def decrypt(argument)
-    Encryptor.new(@offset_true).encrypt(argument)
+    Decryptor.new(@offset_true).encrypt(argument)
   end
 
 end

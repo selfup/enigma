@@ -1,4 +1,5 @@
 class Encryptor
+  attr_accessor :offset
 
   def initialize(offset)
     @offset = offset
