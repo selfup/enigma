@@ -1,12 +1,14 @@
-require './key.rb'
-
 class Offset
 
+  def initialize(date = nil)
+    @date = date
+  end
+
   def date_gen
-    if ARGV[3].nil?
+    if @date.nil?
       Time.now.strftime('%e%m%y')
     else
-      ARGV[3]
+      @date
     end
   end
 

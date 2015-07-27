@@ -1,6 +1,6 @@
 require "./key.rb"
 require "./offset.rb"
-require "./encryptor.rb"
+require "./decryptor.rb"
 require "./output.rb"
 
 class Runner
@@ -19,9 +19,9 @@ class Runner
 
   def true_offset
     offset = []
-    k2 = Key.new
+    k2 = Key.new(ARGV[2])
     @keykey = k2.generator
-    o1 = Offset.new
+    o1 = Offset.new(ARGV[3])
     offset << o1.a_offset + k2.upper_a
     offset << o1.b_offset + k2.upper_b
     offset << o1.c_offset + k2.upper_c
@@ -29,8 +29,8 @@ class Runner
     @offset_true = offset
   end
 
-  def encrypt(argument)
-    Encryptor.new(@offset_true).encrypt(argument)
+  def decrypt(argument)
+    Decryptor.new(@offset_true).decrypt(argument)
   end
 
 end
@@ -39,6 +39,6 @@ handle = Runner.new
 handle.true_offset
 writer = File.open(ARGV[1], "w")
 opener = File.read(ARGV[0])
-writer.write(handle.encrypt(opener))
+writer.write(handle.decrypt(opener))
 writer.close
 puts Output.new.terminal_output(handle.keykey)

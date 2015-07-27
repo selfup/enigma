@@ -2,8 +2,10 @@ require 'pry'
 
 class Key
 
-  def initialize
-    @key = ''
+  attr_accessor :key
+
+  def initialize(key = nil)
+    @key = key
   end
 
   def generator
@@ -29,5 +31,5 @@ class Key
   def upper_d
     @key[3..4].to_i
   end
-  
+
 end

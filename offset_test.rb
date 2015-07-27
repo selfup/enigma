@@ -55,20 +55,20 @@ class OffsetTest < Minitest::Test
     assert_equal 1, thing.to_s.length
   end
 
-  def test_it_accepts_a_given_date
-    sample = Offset.new
-    ARGV[3] = "032489"
-    assert_equal "032489", sample.date_gen
-  end
-
   def test_it_outputs_todays_date
     sample = Offset.new
     assert_equal Time.now.strftime('%e%m%y'), sample.date_gen
   end
 
+  def test_it_accepts_a_given_date
+    ARGV[3] = "032489"
+    sample = Offset.new(ARGV[3])
+    assert_equal "032489", sample.date_gen
+  end
+
   def test_it_puts_todays_date_if_ARGV_is_nil
-    sample = Offset.new
     !ARGV[3] = nil
+    sample = Offset.new(ARGV[3])
     assert_equal Time.now.strftime('%e%m%y'), sample.date_gen
   end
 end
