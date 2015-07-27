@@ -9,7 +9,11 @@ class Key
   end
 
   def generator
-    @key = 5.times.map { rand (0..9) }.join
+    if ARGV[2].nil?
+      @key = 5.times.map { rand (0..9) }.join
+    else
+      ARGV[2]
+    end
   end
 
   def upper_a

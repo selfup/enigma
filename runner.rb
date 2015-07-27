@@ -29,18 +29,19 @@ class Runner
     @offset_true = offset
   end
 
-  def rotator(argument)
+  def encrypt(argument)
     Encryptor.new(@offset_true).encrypt(argument)
   end
-end
 
-# k = Runner.new
-# p k.true_offset # comment this out to remove offset from output instead of key
-# p k.rotator("hello JAJAJA")
+  def decrypt(argument)
+    Encryptor.new(@offset_true).encrypt(argument)
+  end
+
+end
 
 handle = Runner.new
 handle.true_offset
 writer = File.open(ARGV[1], "w")
-writer.write(handle.rotator(ARGV[0]))
+writer.write(handle.encrypt(ARGV[0]))
 writer.close
 puts Output.new.terminal_output(handle.keykey)

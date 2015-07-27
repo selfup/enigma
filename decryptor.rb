@@ -1,23 +1,23 @@
-class Encryptor
+class Decryptor
 
   def initialize(offset)
     @offset = offset
   end
 
-  def rotator_a(a = @offset)
-    a[0]
+  def rotator_a(thing = @offset)
+    thing[0]
   end
 
-  def rotator_b(b = @offset)
-    b[1]
+  def rotator_b(thing = @offset)
+    thing[1]
   end
 
-  def rotator_c(c = @offset)
-    c[2]
+  def rotator_c(thing = @offset)
+    thing[2]
   end
 
-  def rotator_d(d = @offset)
-    d[3]
+  def rotator_d(thing = @offset)
+    thing[3]
   end
 
   def characters
@@ -25,34 +25,34 @@ class Encryptor
   end
 
   def rotated_a(letter)
-    rotated_characters = characters.rotate(rotator_a)
+    rotated_characters = characters.rotate(-rotator_a)
     pairs = characters.zip(rotated_characters)
     cipher = Hash[pairs]
     cipher[letter]
   end
 
   def rotated_b(letter)
-    rotated_characters = characters.rotate(rotator_b)
+    rotated_characters = characters.rotate(-rotator_b)
     pairs = characters.zip(rotated_characters)
     cipher = Hash[pairs]
     cipher[letter]
   end
 
   def rotated_c(letter)
-    rotated_characters = characters.rotate(rotator_c)
+    rotated_characters = characters.rotate(-rotator_c)
     pairs = characters.zip(rotated_characters)
     cipher = Hash[pairs]
     cipher[letter]
   end
 
   def rotated_d(letter)
-    rotated_characters = characters.rotate(rotator_d)
+    rotated_characters = characters.rotate(-rotator_d)
     pairs = characters.zip(rotated_characters)
     cipher = Hash[pairs]
     cipher[letter]
   end
 
-  def encrypt(message)
+  def decrypt(message)
     result = []
     updated = message.downcase.chars.each_slice(4).to_a
 

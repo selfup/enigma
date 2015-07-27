@@ -2,16 +2,12 @@ require './key.rb'
 
 class Offset
 
-  attr_reader :output_date
-
-  def intialize
-    @output_date = date_gen
-  end
-
   def date_gen
-    date = Time.now.strftime('%m%e%y')
-    # date = offset_the_date(date)
-    # last_four(date)
+    if ARGV[3].nil?
+      date = Time.now.strftime('%e%m%y')
+    else
+      ARGV[3]
+    end
   end
 
   def date_masher
