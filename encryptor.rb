@@ -23,6 +23,7 @@ class Encryptor
 
   def characters
     characters = ('a'..'z').to_a + ("0".."9").to_a + (" .,").split("")
+    # clean_text = characters.gsub!(/[^0-9A-Za-z., ]/, '')
   end
 
   def rotated_a(letter)
