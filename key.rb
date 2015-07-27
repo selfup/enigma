@@ -1,5 +1,3 @@
-require 'pry'
-
 class Key
 
   attr_accessor :key
