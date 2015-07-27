@@ -7,33 +7,6 @@ require_relative "runner"
 
 class RunnerTest < Minitest::Test
 
-  def test_runner_generates_a_key
-    sample = Key.new
-    sample.generator
-    assert sample
-  end
-
-  def test_runner_generates_a_five_character_key
-    sample = Key.new
-    key_test = sample.generator
-    assert_equal 5, key_test.length
-  end
-
-  def test_runner_generates_a_two_different_keys
-    sample = Key.new
-    key_test = sample.generator
-    key_test2 = sample.generator
-    refute_equal key_test2, key_test
-  end
-
-  def test_runner_generates_three_different_keys
-    sample = Key.new
-    key_test = sample.generator
-    key_test2 = sample.generator
-    key_test3 = sample.generator
-    refute_equal key_test2, key_test, key_test3
-  end
-
   def test_runner_method_does_the_same_job_as_key_class_for_generate_method
     skip
     sample = Runner.new

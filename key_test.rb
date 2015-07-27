@@ -7,6 +7,11 @@ require_relative "key"
 
 class KeyTest < Minitest::Test
 
+  def test_key_is_an_empty_string
+    sample = Key.new
+    assert_equal nil, sample.key
+  end
+
   def test_it_generates_a_key
     sample = Key.new
     sample.generator
@@ -58,10 +63,9 @@ class KeyTest < Minitest::Test
     assert sample.upper_d.integer?
   end
 
-  # def test_it_accepts_a_given_key
-  #   sample = Key.new
-  #   ARGV[2] = '87954'
-  #   assert_equal '87954', sample.generator
-  # end
-
+  def test_it_return_a_key_is_ARGV_is_nil
+    sample = Key.new
+    ARGV[2] = nil
+    refute_equal ARGV[2], sample.generator
+  end
 end

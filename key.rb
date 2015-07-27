@@ -5,7 +5,7 @@ class Key
   attr_accessor :key
 
   def intialize
-    @key = key
+    @key = nil
   end
 
   def generator
