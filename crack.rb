@@ -10,9 +10,13 @@ attr_reader :key, :input, :expected, :text
 	def initialize(input)
 		@key = []
 		@offset_true = []
-		@input = File.read(input)
+		@input = input
 		@expected = [13, 3, 37, 37]
     @text = text
+	end
+
+	def read_file(text)
+		File.read(@input)
 	end
 
 	def characters
@@ -50,13 +54,10 @@ attr_reader :key, :input, :expected, :text
   end
 
   def put_in_order
-  	result = []
   	order = Hash[@key.zip(@offset_true)]
-		result << order[0]
-		result << order[1]
-		result << order[2]
-		result << order[3]
-    result
+		order.map.with_index do |x, index|
+			order[index]
+		end
   end
 
   def decrypt(argument)
@@ -64,15 +65,18 @@ attr_reader :key, :input, :expected, :text
   end
 
 end
-#
-handle = Cracking.new(ARGV[0])
-handle.key_text
-handle.position_array
-handle.encrypted_character_value
-handle.find_key
-handle.put_in_order
-writer = File.open(ARGV[1], "w")
-opener = File.read(ARGV[0])
-writer.write(handle.decrypt(opener))
-writer.close
-puts Output.new.crack_output
+
+#############################
+# handle = Cracking.new(ARGV[0])
+# handle.read_file
+# handle.key_text
+# handle.position_array
+# handle.encrypted_character_value
+# handle.find_key
+# handle.put_in_order
+# writer = File.open(ARGV[1], "w")
+# opener = File.read(ARGV[0])
+# writer.write(handle.decrypt(opener))
+# writer.close
+# puts Output.new.crack_output
+############################
