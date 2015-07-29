@@ -75,4 +75,4 @@ writer = File.open(ARGV[1], "w")
 opener = File.read(ARGV[0])
 writer.write(handle.decrypt(opener))
 writer.close
-puts Output.new.terminal_output(handle.key)
+puts Output.new.crack_output

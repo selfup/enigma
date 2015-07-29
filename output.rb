@@ -10,4 +10,8 @@ class Output
     "Created #{ARGV[1]} with the key #{keykey} and the date #{date_for_output}"
   end
 
+  def crack_output
+    "Created #{ARGV[1]}"
+  end
+
 end
