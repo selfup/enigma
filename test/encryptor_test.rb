@@ -67,9 +67,4 @@ class EncryptorTest < Minitest::Test
     assert_equal '2345', sample.encrypt('1234')
   end
 
-  # def test_it_encrypts_a_message_with_wrong_characters
-  #   sample = Encryptor.new([1,1,1,1])
-  #   assert_equal 'cdef', sample.encrypt('bcde%$')
-  # end
-
 end

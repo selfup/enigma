@@ -7,8 +7,8 @@ class Cracking
 
 attr_reader :input, :expected
 
-	def initialize
-		@input = File.read(ARGV[0])
+	def initialize(input)
+		@input = File.read(input)
 		@expected = [13, 3, 37, 37]
 	end
 
@@ -62,7 +62,7 @@ attr_reader :input, :expected
 
 end
 
-handle = Cracking.new
+handle = Cracking.new(ARGV[0])
 handle.put_in_order
 writer = File.open(ARGV[1], "w")
 opener = File.read(ARGV[0])
