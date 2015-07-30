@@ -1,4 +1,4 @@
-require "./offset.rb"
+require_relative "offset"
 
 class Output
 

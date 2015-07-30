@@ -3,7 +3,7 @@ SimpleCov.start
 
 require "minitest/autorun"
 require "minitest/pride"
-require_relative "key"
+require "./lib/key"
 
 class KeyTest < Minitest::Test
 

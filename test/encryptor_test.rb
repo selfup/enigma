@@ -3,7 +3,7 @@ SimpleCov.start
 
 require "minitest/autorun"
 require "minitest/pride"
-require_relative "encryptor"
+require "./lib/encryptor"
 
 class EncryptorTest < Minitest::Test
 
