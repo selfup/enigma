@@ -4,9 +4,7 @@ require_relative "encryptor"
 require_relative "output"
 
 class Encrypt
-
-  attr_reader :offset_true
-  attr_accessor :keykey
+  attr_reader :offset_true, :keykey
 
   def intialize
     @offset_true = offset_true
@@ -28,7 +26,6 @@ class Encrypt
   def encrypt(argument)
     Encryptor.new(@offset_true).encrypt(argument)
   end
-
 end
 
 handle = Encrypt.new

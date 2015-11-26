@@ -4,9 +4,7 @@ require_relative "decryptor"
 require_relative "output"
 
 class Decrypt
-
-  attr_reader :offset_true
-  attr_accessor :keykey
+  attr_reader :offset_true, :keykey
 
   def intialize
     @offset_true = offset_true
@@ -28,7 +26,6 @@ class Decrypt
   def decrypt(argument)
     Decryptor.new(@offset_true).decrypt(argument)
   end
-
 end
 
 handle = Decrypt.new

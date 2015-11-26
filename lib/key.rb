@@ -1,6 +1,5 @@
 class Key
-
-  attr_accessor :key
+  attr_reader :key
 
   def initialize(key = nil)
     @key = key
@@ -29,5 +28,4 @@ class Key
   def upper_d
     @key[3..4].to_i
   end
-
 end

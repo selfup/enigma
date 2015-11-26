@@ -6,7 +6,6 @@ require "minitest/pride"
 require "./lib/encrypt.rb"
 
 class DecriptTest < Minitest::Test
-
   def test_it_changes_the_key
     sample = Encrypt.new
     refute_equal [83, 25, 35, 40], sample.true_offset
@@ -17,5 +16,4 @@ class DecriptTest < Minitest::Test
     sample.true_offset
     refute_equal "us8ziuuf1.9", sample.encrypt(ARGV[0])
   end
-
 end

@@ -1,5 +1,4 @@
 class Offset
-
   def initialize(date = nil)
     @date = date
   end
@@ -39,5 +38,4 @@ class Offset
   def d_offset
     date_masher[3].to_i
   end
-
 end

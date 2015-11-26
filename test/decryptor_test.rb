@@ -6,7 +6,6 @@ require "minitest/pride"
 require "./lib/decryptor"
 
 class DecryptorTest < Minitest::Test
-
   def test_it_puts_an_offset
     sample = Decryptor.new([1,2,3,4])
     assert_equal [1,2,3,4], sample.offset
@@ -67,4 +66,8 @@ class DecryptorTest < Minitest::Test
     assert_equal '1234', sample.decrypt('2345')
   end
 
+  def test_it_encrypts_a_message_with_more_than_five_characters
+    sample = Decryptor.new([1,1,1,1])
+    assert_equal '1234abc', sample.decrypt('2345bcd')
+  end
 end

@@ -4,8 +4,7 @@ require_relative "decryptor"
 require_relative "output"
 
 class Cracking
-
-attr_reader :input, :expected
+	attr_reader :input, :expected
 
 	def initialize(input)
 		@input = File.read(input)
@@ -59,7 +58,6 @@ attr_reader :input, :expected
   def decrypt(argument)
     Decryptor.new(put_in_order).decrypt(argument)
   end
-
 end
 
 handle = Cracking.new(ARGV[0])

@@ -6,7 +6,6 @@ require "minitest/pride"
 require "./lib/offset"
 
 class OffsetTest < Minitest::Test
-
   def test_a_offset_is_an_integer
     sample = Offset.new
     thing = sample.a_offset

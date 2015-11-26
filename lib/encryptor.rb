@@ -1,5 +1,5 @@
 class Encryptor
-  attr_accessor :offset
+  attr_reader :offset
 
   def initialize(offset)
     @offset = offset
@@ -58,20 +58,13 @@ class Encryptor
     updated = message.downcase.chars.each_slice(4).to_a
 
     updated.each_with_index do |letter, index|
-      if letter[0]
-        result << rotated_a(letter[0])
-      end
-      if letter[1]
-        result << rotated_b(letter[1])
-      end
-      if letter[2]
-        result << rotated_c(letter[2])
-      end
-      if letter[3]
-        result << rotated_d(letter[3])
+      letter.each_with_index do |l, i|
+        r = [rotated_a(l), rotated_b(l), rotated_c(l), rotated_d(l)]
+        if l
+          result << r[i]
+        end
       end
     end
     result.join
   end
-
 end

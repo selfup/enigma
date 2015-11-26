@@ -1,5 +1,5 @@
 class Decryptor
-  attr_accessor :offset
+  attr_reader :offset
 
   def initialize(offset)
     @offset = offset
@@ -58,20 +58,13 @@ class Decryptor
     updated = message.downcase.chars.each_slice(4).to_a
 
     updated.each_with_index do |letter, index|
-      if letter[0]
-        result << reverse_a(letter[0])
-      end
-      if letter[1]
-        result << reverse_b(letter[1])
-      end
-      if letter[2]
-        result << reverse_c(letter[2])
-      end
-      if letter[3]
-        result << reverse_d(letter[3])
+      letter.each_with_index do |l, i|
+        r = [reverse_a(l), reverse_b(l), reverse_c(l), reverse_d(l)]
+        if l
+          result << r[i]
+        end
       end
     end
     result.join
   end
-
 end
