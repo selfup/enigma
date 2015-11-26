@@ -1,7 +1,6 @@
 require_relative "offset"
 
 class Output
-
   def date_for_output
     Offset.new.date_gen
   end
@@ -13,5 +12,4 @@ class Output
   def crack_output
     "Created #{ARGV[1]}"
   end
-
 end

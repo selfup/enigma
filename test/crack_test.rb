@@ -6,7 +6,6 @@ require "minitest/pride"
 require "./lib/crack.rb"
 
 class CrackTest < Minitest::Test
-
   def test_it_accepts_an_input
     sample = Cracking.new(ARGV[0])
     assert_equal "hcvqorrjrcidelnd.", sample.input
@@ -48,5 +47,4 @@ class CrackTest < Minitest::Test
     something = File.read(ARGV[1])
     assert_equal something, sample.decrypt("hcvqorrjrcidelnd.")
   end
-
 end
