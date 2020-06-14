@@ -59,12 +59,14 @@ class Encryptor
 
     updated.each_with_index do |letter, index|
       letter.each_with_index do |l, i|
-        r = [rotated_a(l), rotated_b(l), rotated_c(l), rotated_d(l)]
+        rotations = [rotated_a(l), rotated_b(l), rotated_c(l), rotated_d(l)]
+        
         if l
-          result << r[i]
+          result << rotations[i]
         end
       end
     end
+    
     result.join
   end
 end

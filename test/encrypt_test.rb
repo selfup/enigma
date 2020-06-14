@@ -14,6 +14,6 @@ class DecriptTest < Minitest::Test
   def test_it_makes_new_message
     sample = Encrypt.new
     sample.true_offset
-    refute_equal "us8ziuuf1.9", sample.encrypt(ARGV[0])
+    refute_equal "us8ziuuf1.9", sample.encrypt(ARGV[0] || "us8ziuuf1.9")
   end
 end

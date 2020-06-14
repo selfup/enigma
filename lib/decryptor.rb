@@ -22,7 +22,7 @@ class Decryptor
   end
 
   def characters
-    characters = ('a'..'z').to_a + ("0".."9").to_a + (" .,").split("")
+    ('a'..'z').to_a + ("0".."9").to_a + (" .,").split("")
   end
 
   def reverse_a(letter)

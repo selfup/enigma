@@ -8,7 +8,7 @@ require "./lib/key"
 class KeyTest < Minitest::Test
   def test_key_is_an_empty_string
     sample = Key.new
-    assert_equal nil, sample.key
+    assert_nil sample.key
   end
 
   def test_it_generates_a_key

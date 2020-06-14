@@ -9,6 +9,7 @@ class Decrypt
   def intialize
     @offset_true = offset_true
     @keykey = keykey
+    true_offset
   end
 
   def true_offset
@@ -28,10 +29,14 @@ class Decrypt
   end
 end
 
-handle = Decrypt.new
-handle.true_offset
-writer = File.open(ARGV[1], "w")
-opener = File.read(ARGV[0])
-writer.write(handle.decrypt(opener))
-writer.close
-puts Output.new.terminal_output(handle.keykey)
+if __FILE == $0
+  handle = Decrypt.new
+
+  writer = File.open(ARGV[1], "w")
+  opener = File.read(ARGV[0])
+
+  writer.write(handle.decrypt(opener))
+  writer.close
+
+  puts Output.new.terminal_output(handle.keykey)
+end

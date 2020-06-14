@@ -9,17 +9,23 @@ class Encrypt
   def intialize
     @offset_true = offset_true
     @keykey = keykey
+
+    true_offset
   end
 
   def true_offset
     offset = []
+    
     k2 = Key.new
     @keykey = k2.generator
+    
     o1 = Offset.new
+
     offset << o1.a_offset + k2.upper_a
     offset << o1.b_offset + k2.upper_b
     offset << o1.c_offset + k2.upper_c
     offset << o1.d_offset + k2.upper_d
+    
     @offset_true = offset
   end
 
@@ -28,10 +34,14 @@ class Encrypt
   end
 end
 
-handle = Encrypt.new
-handle.true_offset
-writer = File.open(ARGV[1], "w")
-opener = File.read(ARGV[0])
-writer.write(handle.encrypt(opener))
-writer.close
-puts Output.new.terminal_output(handle.keykey)
+if __FILE__ == $0
+  handle = Encrypt.new
+
+  writer = File.open(ARGV[1], "w")
+  opener = File.read(ARGV[0])
+
+  writer.write(handle.encrypt(opener))
+  writer.close
+
+  puts Output.new.terminal_output(handle.keykey)
+end
