@@ -29,31 +29,29 @@ class Cracking
   end
 
   def position_array
-    key = []
-    key << (length - 4) % 4
-    key << (length - 3) % 4
-    key << (length - 2) % 4
-    key << (length - 1) % 4
+    Array.new(4) { |i| i + 1 }
+      .map { |x| (length - x) % 4 }
+      .reverse
   end
 
   def encrypted_character_value
-    answer = []
-    key_text.each do |x|
-      answer << characters.index(x).to_i
+    key_text.map do |x|
+      characters.index(x).to_i
     end
-    answer
   end
 
   def find_key
-    offset_true = []
-    offset_true << (39 - @expected[0]) + encrypted_character_value[0]
-    offset_true << (39 - @expected[1]) + encrypted_character_value[1]
-    offset_true << (39 - @expected[2]) + encrypted_character_value[2]
-    offset_true << (39 - @expected[3]) + encrypted_character_value[3]
+    Array.new(4) { |num| num }.map do |x|
+      (39 - @expected[x]) + encrypted_character_value[x]
+      (39 - @expected[x]) + encrypted_character_value[x]
+      (39 - @expected[x]) + encrypted_character_value[x]
+      (39 - @expected[x]) + encrypted_character_value[x]
+    end
   end
 
   def put_in_order
     order = Hash[position_array.zip(find_key)]
+
     order.map.with_index do |x, index|
       order[index]
     end

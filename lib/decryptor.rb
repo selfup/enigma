@@ -55,6 +55,7 @@ class Decryptor
 
   def decrypt(message)
     result = []
+    
     updated = message.downcase.chars.each_slice(4).to_a
 
     updated.each_with_index do |letter, index|
@@ -65,6 +66,7 @@ class Decryptor
         end
       end
     end
+
     result.join
   end
 end

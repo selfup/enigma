@@ -4,28 +4,16 @@ require_relative "decryptor"
 require_relative "output"
 
 class Decrypt
-  attr_reader :offset_true, :keykey
+  attr_reader :offsets, :key
 
   def intialize
-    @offset_true = offset_true
-    @keykey = keykey
-    true_offset
-  end
-
-  def true_offset
-    offset = []
-    k2 = Key.new(ARGV[2])
-    @keykey = k2.generator
-    o1 = Offset.new(ARGV[3])
-    offset << o1.a_offset + k2.upper_a
-    offset << o1.b_offset + k2.upper_b
-    offset << o1.c_offset + k2.upper_c
-    offset << o1.d_offset + k2.upper_d
-    @offset_true = offset
+    @key = Key.new(ARGV[2]).generator
+        
+    @offsets = Offset.new(ARGV[3]).offsets
   end
 
   def decrypt(argument)
-    Decryptor.new(@offset_true).decrypt(argument)
+    Decryptor.new(@offsets).decrypt(argument)
   end
 end
 
@@ -38,5 +26,5 @@ if __FILE == $0
   writer.write(handle.decrypt(opener))
   writer.close
 
-  puts Output.new.terminal_output(handle.keykey)
+  puts Output.new.terminal_output(handle.key)
 end
